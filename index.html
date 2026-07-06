@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Timeførern — før timer uten styr</title>
+<meta name="description" content="Timeførern er timeføringsappen for frilansere og små team. Før timer, send kontrakter og hold oversikt over kundene dine — alt på ett sted. Fra kr 299,- i måneden.">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#7c2fa1">
+<link rel="canonical" href="https://timeforern.no/">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%237c2fa1'/%3E%3Ccircle cx='32' cy='32' r='18' fill='none' stroke='white' stroke-width='4'/%3E%3Cpath d='M32 21v11l8 5' stroke='white' stroke-width='4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Timeførern">
+<meta property="og:title" content="Timeførern — før timer uten styr">
+<meta property="og:description" content="Før timer, send kontrakter og hold oversikt over kundene dine — alt på ett sted. Fra kr 299,- i måneden.">
+<meta property="og:url" content="https://timeforern.no/">
+<meta property="og:image" content="https://timeforern.no/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="nb_NO">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Timeførern — før timer uten styr">
+<meta name="twitter:description" content="Før timer, send kontrakter og hold oversikt over kundene dine — alt på ett sted.">
+<meta name="twitter:image" content="https://timeforern.no/og-image.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Inter:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Timeførern",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "url": "https://timeforern.no/",
+  "description": "Timeføringsapp for frilansere og små team. Før timer, send kontrakter og hold oversikt over kundene dine.",
+  "offers": {
+    "@type": "Offer",
+    "price": "299",
+    "priceCurrency": "NOK",
+    "priceValidUntil": "2027-12-31",
+    "url": "https://timeforern.no/#priser"
+  },
+  "inLanguage": "nb-NO"
+}
+</script>
+
+<style>
+  :root {
+    --brand-50: #faf1ff;
+    --brand-100: #f4e4ff;
+    --brand-200: #e4c8f5;
+    --brand-300: #cfa4e8;
+    --brand-400: #b379d3;
+    --brand-500: #9650ba;
+    --brand-600: #7c2fa1;
+    --brand-700: #601382;
+    --brand-800: #43005e;
+    --brand-900: #2a003d;
+    --brand-950: #140020;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: var(--brand-900);
+    background: var(--brand-50);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: 'Bricolage Grotesque', 'Inter', sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--brand-900);
+  }
+
+  a { color: inherit; text-decoration: none; }
+  img, svg { max-width: 100%; display: block; }
+
+  .wrap {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Nav */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(250, 241, 255, 0.85);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--brand-200);
+  }
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 0;
+  }
+  .logo {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 800;
+    font-size: 20px;
+    color: var(--brand-900);
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+  .nav-links a:not(.btn) {
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--brand-700);
+    transition: color 0.15s;
+  }
+  .nav-links a:not(.btn):hover { color: var(--brand-900); }
+  .nav-cta { display: flex; align-items: center; gap: 12px; }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.15s, box-shadow 0.15s, background-color 0.15s;
+    white-space: nowrap;
+  }
+  .btn:active { transform: scale(0.97); }
+  .btn-primary {
+    background: var(--brand-600);
+    color: #fff;
+    box-shadow: 0 10px 24px rgba(124, 47, 161, 0.28);
+  }
+  .btn-primary:hover { background: var(--brand-700); }
+  .btn-ghost {
+    background: transparent;
+    color: var(--brand-800);
+  }
+  .btn-ghost:hover { background: var(--brand-100); }
+  .btn-lg { padding: 16px 32px; font-size: 16px; border-radius: 14px; }
+
+  /* Hero */
+  .hero {
+    padding: 96px 0 64px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 900px;
+    height: 500px;
+    background: radial-gradient(circle, var(--brand-200) 0%, transparent 70%);
+    opacity: 0.6;
+    z-index: 0;
+  }
+  .hero > * { position: relative; z-index: 1; }
+  .preview-wrap {
+    position: relative;
+  }
+  .hero-illustration {
+    position: absolute;
+    top: -64px;
+    right: 32px;
+    width: 150px;
+    height: auto;
+    z-index: 2;
+    pointer-events: none;
+    filter: drop-shadow(0 16px 20px rgba(42, 0, 61, 0.2));
+  }
+  @media (max-width: 640px) {
+    .hero-illustration { width: 100px; top: -40px; right: 16px; }
+  }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--brand-100);
+    color: var(--brand-700);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.02em;
+    padding: 8px 16px;
+    border-radius: 999px;
+    margin-bottom: 24px;
+  }
+  .eyebrow .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--brand-600);
+  }
+  .hero h1 {
+    font-size: clamp(36px, 6vw, 64px);
+    line-height: 1.05;
+    max-width: 800px;
+    margin: 0 auto 20px;
+  }
+  .hero h1 .highlight {
+    color: var(--brand-600);
+    position: relative;
+    white-space: nowrap;
+  }
+  .hero p.lead {
+    font-size: 19px;
+    color: var(--brand-700);
+    max-width: 560px;
+    margin: 0 auto 36px;
+  }
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  .hero-note {
+    font-size: 14px;
+    color: var(--brand-500);
+    font-weight: 600;
+  }
+
+  /* Product preview mock */
+  .preview {
+    margin-top: 56px;
+    border-radius: 24px;
+    background: #fff;
+    border: 1px solid var(--brand-200);
+    box-shadow: 0 40px 80px -20px rgba(42, 0, 61, 0.25);
+    overflow: hidden;
+    max-width: 980px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .preview-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 20px;
+    background: var(--brand-50);
+    border-bottom: 1px solid var(--brand-100);
+  }
+  .preview-bar span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--brand-200);
+  }
+  .preview-body {
+    padding: 28px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    background: var(--brand-50);
+  }
+  .preview-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 20px;
+    text-align: left;
+  }
+  .preview-card .num {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 800;
+    font-size: 28px;
+    color: var(--brand-600);
+  }
+  .preview-card .label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--brand-500);
+    margin-top: 4px;
+  }
+  .preview-row {
+    grid-column: 1 / -1;
+    background: #fff;
+    border-radius: 16px;
+    padding: 24px;
+    text-align: left;
+  }
+  .preview-row h4 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+  .preview-fields {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .preview-fields div {
+    flex: 1;
+    min-width: 100px;
+    height: 44px;
+    background: var(--brand-100);
+    border-radius: 10px;
+  }
+  .preview-fields .cta {
+    flex: 0 0 auto;
+    min-width: 140px;
+    background: var(--brand-600);
+  }
+
+  /* Preview table of sample entries */
+  .preview-table {
+    grid-column: 1 / -1;
+    background: #fff;
+    border-radius: 16px;
+    padding: 8px 24px 20px;
+    text-align: left;
+  }
+  .preview-table table { width: 100%; border-collapse: collapse; }
+  .preview-table th {
+    text-align: left;
+    font-size: 10.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--brand-500);
+    padding: 12px 8px 10px;
+    border-bottom: 1px solid var(--brand-100);
+  }
+  .preview-table th.num, .preview-table td.num { text-align: right; }
+  .preview-table td {
+    font-size: 13.5px;
+    padding: 12px 8px;
+    border-bottom: 1px solid var(--brand-50);
+    color: var(--brand-900);
+  }
+  .preview-table td.muted { color: var(--brand-500); font-size: 12.5px; }
+  .preview-table .pill {
+    display: inline-block;
+    background: var(--brand-100);
+    color: var(--brand-700);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 9px;
+    border-radius: 999px;
+  }
+
+  /* Logos / social proof strip */
+  .strip {
+    padding: 40px 0;
+    text-align: center;
+  }
+  .strip p {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--brand-400);
+  }
+
+  /* Features */
+  section { padding: 80px 0; }
+  .section-head {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 56px;
+  }
+  .section-head .eyebrow { margin-bottom: 16px; }
+  .section-head h2 {
+    font-size: clamp(28px, 4vw, 40px);
+    margin-bottom: 16px;
+  }
+  .section-head p {
+    font-size: 17px;
+    color: var(--brand-700);
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .feature-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 32px;
+    border: 1px solid var(--brand-100);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px -12px rgba(42, 0, 61, 0.15);
+  }
+  .feature-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: var(--brand-100);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: var(--brand-600);
+  }
+  .feature-card h3 {
+    font-size: 19px;
+    margin-bottom: 10px;
+  }
+  .feature-card p {
+    font-size: 15px;
+    color: var(--brand-700);
+  }
+
+  /* How it works */
+  .how-it-works {
+    background: #fff;
+    border-radius: 32px;
+  }
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 8px;
+  }
+  .step {
+    text-align: center;
+    padding: 0 12px;
+  }
+  .step .step-num {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--brand-600);
+    color: #fff;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+  }
+  .step h3 { font-size: 18px; margin-bottom: 8px; }
+  .step p { font-size: 15px; color: var(--brand-700); }
+
+  /* Pricing / final CTA */
+  .pricing-card {
+    background: linear-gradient(135deg, var(--brand-600) 0%, var(--brand-800) 100%);
+    border-radius: 28px;
+    padding: 72px 64px;
+    text-align: center;
+    color: #fff;
+    max-width: 920px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+  }
+  .pricing-card .price-tag {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 6px;
+    background: rgba(255, 255, 255, 0.14);
+    padding: 8px 18px;
+    border-radius: 999px;
+    margin-bottom: 20px;
+    font-weight: 700;
+  }
+  .pricing-card .price-tag .amount {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 18px;
+  }
+  .pricing-card .price-tag .period {
+    font-size: 13px;
+    color: var(--brand-200);
+  }
+  .pricing-card h2 {
+    color: #fff;
+    margin-bottom: 16px;
+    font-size: clamp(32px, 5vw, 48px);
+    line-height: 1.2;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .pricing-card p.lead {
+    color: var(--brand-100);
+    max-width: 520px;
+    margin: 0 auto 32px;
+    font-size: 18px;
+  }
+  .pricing-card .btn-primary {
+    background: #fff;
+    color: var(--brand-700);
+  }
+  .pricing-card .btn-primary:hover { background: var(--brand-50); }
+
+  /* FAQ */
+  .faq {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .faq-item {
+    border-bottom: 1px solid var(--brand-200);
+    padding: 24px 0;
+  }
+  .faq-item h3 {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .faq-item p {
+    font-size: 15px;
+    color: var(--brand-700);
+  }
+
+  /* Footer */
+  footer {
+    background: var(--brand-900);
+    color: var(--brand-200);
+    padding: 56px 0 32px;
+  }
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 32px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(228, 200, 245, 0.15);
+    margin-bottom: 24px;
+  }
+  footer .logo { color: #fff; margin-bottom: 8px; }
+  .footer-tagline { font-size: 14px; color: var(--brand-300); max-width: 280px; }
+  .footer-links {
+    display: flex;
+    gap: 64px;
+    flex-wrap: wrap;
+  }
+  .footer-col h4 {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--brand-400);
+    margin-bottom: 14px;
+  }
+  .footer-col a {
+    display: block;
+    font-size: 14px;
+    color: var(--brand-200);
+    margin-bottom: 10px;
+    transition: color 0.15s;
+  }
+  .footer-col a:hover { color: #fff; }
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--brand-400);
+  }
+
+  /* Mobile */
+  @media (max-width: 860px) {
+    .features-grid, .steps { grid-template-columns: 1fr; }
+    .preview-body { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 720px) {
+    .nav-links a:not(.btn) { display: none; }
+    section { padding: 56px 0; }
+    .hero { padding: 64px 0 40px; }
+    .pricing-card { padding: 48px 24px; }
+    .footer-top { flex-direction: column; }
+    .preview-body { grid-template-columns: 1fr 1fr; padding: 16px; gap: 10px; }
+    .preview-fields { flex-direction: column; }
+    .preview-fields div { min-width: 0; }
+    .preview-table { overflow-x: auto; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <a href="#" class="logo">Timeførern</a>
+      <div class="nav-links">
+        <a href="#funksjoner">Funksjoner</a>
+        <a href="#slik-fungerer-det">Slik fungerer det</a>
+        <a href="#priser">Priser</a>
+        <a href="#ofte-stilt">Spørsmål</a>
+      </div>
+      <div class="nav-cta">
+        <a href="https://timer.marcusevensen.no/login" class="btn btn-ghost">Logg inn</a>
+        <a href="https://timer.marcusevensen.no/login" class="btn btn-primary">Start i dag</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="wrap">
+
+      
+
+      <span class="eyebrow"><span class="dot"></span> Bygget for frilansere og små team</span>
+      <h1>Få kontroll på timene <span class="highlight">uten ekstra styr</span></h1>
+      <p class="lead">Før timer, send kontrakter og hold oversikt over kundene dine — alt på ett sted. Ingen regneark, ingen kaos.</p>
+      <div class="hero-actions">
+        <a href="https://timer.marcusevensen.no/login" class="btn btn-primary btn-lg">Start i dag</a>
+        <a href="#slik-fungerer-det" class="btn btn-ghost btn-lg">Se hvordan det funker</a>
+      </div>
+      <p class="hero-note">Fra kr 299,- i måneden · Klar på under 2 minutter</p>
+
+      <div class="preview-wrap">
+        <img class="hero-illustration" src="data:image/png;base64,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" alt="Illustrasjon av en fornøyd timeglass-figur som mediterer" width="480" height="567" loading="eager">
+        <div class="preview">
+          <div class="preview-bar">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="preview-body">
+          <div class="preview-card">
+            <div class="num">32</div>
+            <div class="label">Timer denne måneden</div>
+          </div>
+          <div class="preview-card">
+            <div class="num">kr 48 400</div>
+            <div class="label">Fakturert verdi</div>
+          </div>
+          <div class="preview-card">
+            <div class="num">6</div>
+            <div class="label">Aktive kunder</div>
+          </div>
+          <div class="preview-card">
+            <div class="num">4,5t</div>
+            <div class="label">Timer i dag</div>
+          </div>
+
+          <div class="preview-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Dato</th>
+                  <th>Kunde / Aktivitet</th>
+                  <th class="num">Timer</th>
+                  <th class="num">Sum</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>06.07</td>
+                  <td>Acme AS <span class="muted">— Nettside redesign</span></td>
+                  <td class="num">3,5t</td>
+                  <td class="num">kr 4 375</td>
+                </tr>
+                <tr>
+                  <td>05.07</td>
+                  <td>Nordly Design <span class="muted">— Merkevareprofil</span></td>
+                  <td class="num">2t</td>
+                  <td class="num">kr 2 500</td>
+                </tr>
+                <tr>
+                  <td>04.07</td>
+                  <td>Fjellstad Regnskap <span class="muted">— Konsultasjon</span> <span class="pill">Fakturert</span></td>
+                  <td class="num">1,5t</td>
+                  <td class="num">kr 1 875</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="strip">
+    <div class="wrap">
+      <p>Laget for konsulenter, designere og utviklere som fakturerer på timer</p>
+    </div>
+  </div>
+
+  <!-- Features -->
+  <section id="funksjoner">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow"><span class="dot"></span> Funksjoner</span>
+        <h2>Alt du trenger, ingenting du ikke gjør</h2>
+        <p>Fem verktøy som jobber sammen, ikke fem apper du må bytte mellom.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>
+          </div>
+          <h3>Timer på sekunder</h3>
+          <p>Start stoppeklokka når du begynner å jobbe, eller før timene manuelt etterpå. Begge deler tar under et minutt.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3>Kunder og prosjekter</h3>
+          <p>Søk opp kunden i Brønnøysundregisteret og få org.nr og adresse automatisk. Prosjekter gir deg riktige rapporter uten ekstra jobb.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+          <h3>Kontrakter på minutter</h3>
+          <p>Fyll inn detaljene dine, så lager vi en ferdig, juridisk ryddig kontrakt du kan sende til kunden — og laste ned som PDF.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <h3>Smarte maler</h3>
+          <p>Fører du samme jobb ofte? Appen kjenner det igjen og foreslår en mal, så slipper du å skrive det samme på nytt hver gang.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18.7 8l-5.1 5.2-3-3L7 14"/></svg>
+          </div>
+          <h3>Rapporter og fakturering</h3>
+          <p>Se hvor mye du har jobbet og for hvem, eksporter til CSV, og merk timer som fakturert med ett klikk.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <h3>Full oversikt</h3>
+          <p>Følg med på timer, inntekt og aktive kunder i sanntid — på tvers av alle enhetene dine.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section id="slik-fungerer-det">
+    <div class="wrap how-it-works" style="padding: 64px 48px;">
+      <div class="section-head" style="margin-bottom: 40px;">
+        <span class="eyebrow"><span class="dot"></span> Slik fungerer det</span>
+        <h2>I gang på tre steg</h2>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3>Legg til en kunde</h3>
+          <p>Skriv inn navnet, eller søk det opp i Brønnøysundregisteret. Ferdig på 30 sekunder.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3>Før timene dine</h3>
+          <p>Start stoppeklokka, eller skriv inn tidspunktene manuelt. Du velger selv.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3>Send og fakturer</h3>
+          <p>Eksporter rapporten, send en kontrakt, eller merk timer som fakturert. Du bestemmer neste steg.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing / CTA -->
+  <section id="priser">
+    <div class="wrap">
+      <div class="pricing-card">
+        <div class="price-tag"><span class="amount">kr 299,-</span><span class="period">/ måneden</span></div>
+        <h2>Klar til å slutte å lete etter regnearket?</h2>
+        <p class="lead">Kom i gang på under to minutter. Ingen skjulte kostnader, ingen bindingstid.</p>
+        <a href="https://timer.marcusevensen.no/login" class="btn btn-primary btn-lg">Start i dag</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="ofte-stilt">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow"><span class="dot"></span> Spørsmål og svar</span>
+        <h2>Lurer du på noe?</h2>
+      </div>
+      <div class="faq">
+        <div class="faq-item">
+          <h3>Koster det noe?</h3>
+          <p>Ja, Timeførern koster kr 299,- i måneden. Ingen bindingstid, og du kan si opp når du vil.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Må jeg installere noe?</h3>
+          <p>Nei. Alt kjører i nettleseren, og dataene dine synkroniseres automatisk mellom enhetene dine.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Kan jeg lage kontrakter for kundene mine?</h3>
+          <p>Ja. Fyll inn detaljene, og du får en ferdig, juridisk ryddig kontrakt du kan laste ned som PDF og sende rett til kunden.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Fungerer det for team, eller bare for meg selv?</h3>
+          <p>Det passer best for frilansere og små team i dag. Du får full oversikt over kundene og prosjektene dine uansett hvor mange dere er.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <div class="logo">Timeførern</div>
+        <p class="footer-tagline">Før timer, send kontrakter og hold oversikt — uten ekstra styr.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Produkt</h4>
+          <a href="#funksjoner">Funksjoner</a>
+          <a href="#slik-fungerer-det">Slik fungerer det</a>
+          <a href="#priser">Priser</a>
+          <a href="#ofte-stilt">Spørsmål</a>
+        </div>
+        <div class="footer-col">
+          <h4>Konto</h4>
+          <a href="https://timer.marcusevensen.no/login">Logg inn</a>
+          <a href="https://timer.marcusevensen.no/login">Start i dag</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Timeførern. Alle rettigheter reservert.</span>
+      <span>Laget i Norge 🇳🇴</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
