@@ -430,6 +430,100 @@
     color: var(--brand-700);
   }
 
+  /* Team */
+  .team-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    align-items: center;
+  }
+  .team-copy h2 { font-size: clamp(28px, 4vw, 38px); margin: 16px 0; }
+  .team-copy > p { font-size: 17px; color: var(--brand-700); margin-bottom: 20px; }
+  .team-points { list-style: none; margin-bottom: 24px; }
+  .team-points li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 15px;
+    color: var(--brand-800);
+    margin-bottom: 10px;
+  }
+  .team-check {
+    flex: 0 0 auto;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--brand-600);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .team-price-note {
+    font-size: 14px;
+    color: var(--brand-500);
+    font-weight: 600;
+    margin-bottom: 24px;
+  }
+  .team-mock {
+    background: #fff;
+    border-radius: 24px;
+    border: 1px solid var(--brand-200);
+    box-shadow: 0 30px 60px -20px rgba(42, 0, 61, 0.2);
+    padding: 24px;
+  }
+  .team-mock-header {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    background: var(--brand-100);
+    border-radius: 14px;
+    padding: 16px 18px;
+    margin-bottom: 16px;
+  }
+  .team-mock-header span { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; color: var(--brand-600); }
+  .team-mock-header strong { font-family: 'Bricolage Grotesque', sans-serif; font-size: 19px; color: var(--brand-900); }
+  .team-mock-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    border-radius: 12px;
+    background: var(--brand-50);
+    margin-bottom: 10px;
+  }
+  .team-mock-row:last-child { margin-bottom: 0; }
+  .team-avatar {
+    flex: 0 0 auto;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--brand-600);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .team-mock-info { display: flex; flex-direction: column; gap: 2px; }
+  .team-mock-info strong { font-size: 14px; color: var(--brand-900); }
+  .team-mock-info span { font-size: 12px; color: var(--brand-600); }
+  .team-pill {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 999px;
+  }
+  .team-pill-active { background: #d5f2df; color: #1f7a44; }
+  .team-pill-pending { background: #fde7cf; color: #a25c15; }
+  @media (max-width: 860px) {
+    .team-grid { grid-template-columns: 1fr; gap: 32px; }
+  }
+
   /* How it works */
   .how-it-works {
     background: #fff;
@@ -607,12 +701,13 @@
       <a href="#" class="logo">Hourly</a>
       <div class="nav-links">
         <a href="#funksjoner">Funksjoner</a>
+        <a href="#team">Team</a>
         <a href="#slik-fungerer-det">Slik fungerer det</a>
         <a href="#priser">Priser</a>
         <a href="#ofte-stilt">Spørsmål</a>
       </div>
       <div class="nav-cta">
-        <a href="https://app.hourly.no/login" class="btn btn-ghost">Logg inn</a>
+        <a href="https://app.hourly.no/demo" class="btn btn-ghost">Se demo</a>
         <a href="https://app.hourly.no/login" class="btn btn-primary">Start i dag</a>
       </div>
     </nav>
@@ -626,12 +721,12 @@
 
       
 
-      <span class="eyebrow"><span class="dot"></span> Bygget for frilansere og små team</span>
+      <span class="eyebrow"><span class="dot"></span> Bygget for frilansere og team</span>
       <h1>Få kontroll på timene <span class="highlight">uten ekstra styr</span></h1>
-      <p class="lead">Før timer, send kontrakter og hold oversikt over kundene dine — alt på ett sted. Ingen regneark, ingen kaos.</p>
+      <p class="lead">Før timer, send kontrakter og hold oversikt over kundene dine — alt på ett sted. Jobb alene, eller inviter teamet ditt inn. Ingen regneark, ingen kaos.</p>
       <div class="hero-actions">
         <a href="https://app.hourly.no/login" class="btn btn-primary btn-lg">Start i dag</a>
-        <a href="#slik-fungerer-det" class="btn btn-ghost btn-lg">Se hvordan det funker</a>
+        <a href="https://app.hourly.no/demo" class="btn btn-ghost btn-lg">Prøv demoen — ingen pålogging</a>
       </div>
       <p class="hero-note">Fra kr 299,- i måneden · Klar på under 2 minutter</p>
 
@@ -758,6 +853,53 @@
     </div>
   </section>
 
+  <!-- Team -->
+  <section id="team">
+    <div class="wrap">
+      <div class="team-grid">
+        <div class="team-copy">
+          <span class="eyebrow"><span class="dot"></span> Nytt: Team</span>
+          <h2>Jobb alene i dag, ta med teamet i morgen</h2>
+          <p>Inviter kolleger inn i arbeidsplassen din med ett klikk. De ser samme kunder, prosjekter og timer som deg — ingenting å sette opp på nytt.</p>
+          <ul class="team-points">
+            <li><span class="team-check">✓</span> Del kunder, prosjekter og timeføring med teamet</li>
+            <li><span class="team-check">✓</span> Inviter med e-post — ferdig på under et minutt</li>
+            <li><span class="team-check">✓</span> Fjern medlemmer når som helst, ingen bindingstid</li>
+          </ul>
+          <p class="team-price-note">kr 299,- i måneden per medlem — legges kun til når de faktisk takker ja til invitasjonen.</p>
+          <a href="https://app.hourly.no/demo/team" class="btn btn-primary">Se team-siden i demoen</a>
+        </div>
+        <div class="team-mock">
+          <div class="team-mock-header">
+            <span>Kostnad for teamet</span>
+            <strong>kr 299,- × 3 = kr 897,- / mnd</strong>
+          </div>
+          <div class="team-mock-row">
+            <span class="team-avatar">DE</span>
+            <div class="team-mock-info">
+              <strong>deg@firma.no</strong>
+              <span>Eier · <span class="team-pill team-pill-active">Aktiv</span></span>
+            </div>
+          </div>
+          <div class="team-mock-row">
+            <span class="team-avatar">KA</span>
+            <div class="team-mock-info">
+              <strong>kari@firma.no</strong>
+              <span>Medlem · <span class="team-pill team-pill-active">Aktiv</span></span>
+            </div>
+          </div>
+          <div class="team-mock-row">
+            <span class="team-avatar">NY</span>
+            <div class="team-mock-info">
+              <strong>nyansatt@firma.no</strong>
+              <span>Medlem · <span class="team-pill team-pill-pending">Venter</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- How it works -->
   <section id="slik-fungerer-det">
     <div class="wrap how-it-works" style="padding: 64px 48px;">
@@ -791,8 +933,11 @@
       <div class="pricing-card">
         <div class="price-tag"><span class="amount">kr 299,-</span><span class="period">/ måneden</span></div>
         <h2>Klar til å slutte å lete etter regnearket?</h2>
-        <p class="lead">Kom i gang på under to minutter. Ingen skjulte kostnader, ingen bindingstid.</p>
-        <a href="https://app.hourly.no/login" class="btn btn-primary btn-lg">Start i dag</a>
+        <p class="lead">Kom i gang på under to minutter. Ingen skjulte kostnader, ingen bindingstid. Inviter teamet for kr 299,- per ekstra medlem.</p>
+        <div class="hero-actions" style="margin-bottom: 0;">
+          <a href="https://app.hourly.no/login" class="btn btn-primary btn-lg">Start i dag</a>
+          <a href="https://app.hourly.no/demo" class="btn btn-ghost btn-lg" style="color: #fff;">Prøv demoen først</a>
+        </div>
       </div>
     </div>
   </section>
@@ -819,7 +964,11 @@
         </div>
         <div class="faq-item">
           <h3>Fungerer det for team, eller bare for meg selv?</h3>
-          <p>Det passer best for frilansere og små team i dag. Du får full oversikt over kundene og prosjektene dine uansett hvor mange dere er.</p>
+          <p>Begge deler. Start alene, og inviter kolleger inn i arbeidsplassen din når du trenger det — de ser samme kunder og timer som deg. Hvert medlem koster kr 299,- ekstra i måneden, og legges kun til når de faktisk takker ja til invitasjonen.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Kan jeg prøve appen uten å opprette konto?</h3>
+          <p>Ja. <a href="https://app.hourly.no/demo" style="text-decoration: underline; color: var(--brand-700);">Demoen</a> er åpen for alle, uten pålogging, og viser hvordan appen fungerer med eksempeldata — inkludert team-siden.</p>
         </div>
       </div>
     </div>
@@ -837,12 +986,14 @@
         <div class="footer-col">
           <h4>Produkt</h4>
           <a href="#funksjoner">Funksjoner</a>
+          <a href="#team">Team</a>
           <a href="#slik-fungerer-det">Slik fungerer det</a>
           <a href="#priser">Priser</a>
           <a href="#ofte-stilt">Spørsmål</a>
         </div>
         <div class="footer-col">
           <h4>Konto</h4>
+          <a href="https://app.hourly.no/demo">Prøv demoen</a>
           <a href="https://app.hourly.no/login">Logg inn</a>
           <a href="https://app.hourly.no/login">Start i dag</a>
         </div>
