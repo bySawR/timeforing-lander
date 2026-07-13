@@ -1,5 +1,8 @@
 import Image from 'next/image';
 import heroIllustration from '../public/hero-illustration.png';
+import Reveal from '../components/Reveal';
+import LiveTimer from '../components/LiveTimer';
+import CountUp from '../components/CountUp';
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -110,18 +113,25 @@ export default function HomePage() {
                 <span></span>
                 <span></span>
                 <span></span>
+                <LiveTimer />
               </div>
               <div className="preview-body">
                 <div className="preview-card">
-                  <div className="num">32</div>
+                  <div className="num">
+                    <CountUp value={32} />
+                  </div>
                   <div className="label">Timer denne måneden</div>
                 </div>
                 <div className="preview-card">
-                  <div className="num">kr 48 400</div>
+                  <div className="num">
+                    <CountUp value={48400} prefix="kr " />
+                  </div>
                   <div className="label">Fakturert verdi</div>
                 </div>
                 <div className="preview-card">
-                  <div className="num">6</div>
+                  <div className="num">
+                    <CountUp value={6} />
+                  </div>
                   <div className="label">Aktive kunder</div>
                 </div>
                 <div className="preview-card">
@@ -183,14 +193,16 @@ export default function HomePage() {
       {/* Features */}
       <section id="funksjoner">
         <div className="wrap">
-          <div className="section-head">
-            <span className="eyebrow">
-              <span className="dot"></span> Funksjoner
-            </span>
-            <h2>Alt du trenger, ingenting du ikke gjør</h2>
-            <p>Fem verktøy som jobber sammen, ikke fem apper du må bytte mellom.</p>
-          </div>
-          <div className="features-grid">
+          <Reveal>
+            <div className="section-head">
+              <span className="eyebrow">
+                <span className="dot"></span> Funksjoner
+              </span>
+              <h2>Alt du trenger, ingenting du ikke gjør</h2>
+              <p>Fem verktøy som jobber sammen, ikke fem apper du må bytte mellom.</p>
+            </div>
+          </Reveal>
+          <Reveal delay={1} className="features-grid">
             <div className="feature-card">
               <div className="feature-icon">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -274,7 +286,7 @@ export default function HomePage() {
                 dine.
               </p>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -282,7 +294,7 @@ export default function HomePage() {
       <section id="team">
         <div className="wrap">
           <div className="team-grid">
-            <div className="team-copy">
+            <Reveal className="team-copy">
               <span className="eyebrow">
                 <span className="dot"></span> Nytt: Team
               </span>
@@ -312,8 +324,8 @@ export default function HomePage() {
               <a href="https://app.hourly.no/demo/team" className="btn btn-primary">
                 Se team-siden i demoen
               </a>
-            </div>
-            <div className="team-mock">
+            </Reveal>
+            <Reveal delay={1} className="team-mock">
               <div className="team-mock-header">
                 <span>Kostnad for teamet</span>
                 <strong>kr 299,- × 3 = kr 897,- / mnd</strong>
@@ -345,7 +357,7 @@ export default function HomePage() {
                   </span>
                 </div>
               </div>
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -359,7 +371,7 @@ export default function HomePage() {
             </span>
             <h2>I gang på tre steg</h2>
           </div>
-          <div className="steps">
+          <Reveal className="steps">
             <div className="step">
               <div className="step-num">1</div>
               <h3>Legg til en kunde</h3>
@@ -378,14 +390,14 @@ export default function HomePage() {
                 bestemmer neste steg.
               </p>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* Pricing / CTA */}
       <section id="priser">
         <div className="wrap">
-          <div className="pricing-card">
+          <Reveal className="pricing-card">
             <div className="price-tag">
               <span className="amount">kr 299,-</span>
               <span className="period">/ måneden</span>
@@ -403,7 +415,7 @@ export default function HomePage() {
                 Prøv demoen først
               </a>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 

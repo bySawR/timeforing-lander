@@ -23,13 +23,11 @@ export const metadata: Metadata = {
     title: 'Hourly — før timer uten styr',
     description:
       'Før timer, send kontrakter og hold oversikt over kundene dine — alt på ett sted. Fra kr 299,- i måneden.',
-    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Hourly — før timer uten styr',
     description: 'Før timer, send kontrakter og hold oversikt over kundene dine — alt på ett sted.',
-    images: ['/og-image.png'],
   },
   icons: {
     icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }],

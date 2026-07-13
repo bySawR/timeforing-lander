@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { PortableText, type PortableTextComponents } from '@portabletext/react';
 import { client, getPost, postSlugsQuery, urlFor, CATEGORY_LABELS } from '../../../lib/sanity';
+import CoverPlaceholder from '../../../components/CoverPlaceholder';
 
 export const revalidate = 600;
 
@@ -22,9 +23,11 @@ export async function generateMetadata({
   if (!post) return { title: 'Fant ikke innlegget' };
 
   const title = post.seoTitle || post.title;
-  const ogImage = post.coverImage
-    ? urlFor(post.coverImage).width(1200).height(630).fit('crop').url()
-    : '/og-image.png';
+  // Uten coverImage faller vi tilbake på det autogenererte OG-bildet
+  // fra opengraph-image.tsx i samme mappe.
+  const coverOg = post.coverImage
+    ? [{ url: urlFor(post.coverImage).width(1200).height(630).fit('crop').url(), width: 1200, height: 630 }]
+    : undefined;
 
   return {
     title,
@@ -37,13 +40,13 @@ export async function generateMetadata({
       url: `https://hourly.no/blogg/${post.slug}`,
       publishedTime: post.publishedAt,
       modifiedTime: post._updatedAt,
-      images: [{ url: ogImage, width: 1200, height: 630 }],
+      ...(coverOg ? { images: coverOg } : {}),
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description: post.excerpt,
-      images: [ogImage],
+      ...(coverOg ? { images: [coverOg[0].url] } : {}),
     },
   };
 }
@@ -91,7 +94,7 @@ export default async function BlogPostPage({
     mainEntityOfPage: `https://hourly.no/blogg/${post.slug}`,
     image: post.coverImage
       ? urlFor(post.coverImage).width(1200).height(630).fit('crop').url()
-      : undefined,
+      : `https://hourly.no/blogg/${post.slug}/opengraph-image`,
     author: { '@type': 'Organization', name: 'Hourly', url: 'https://hourly.no' },
     publisher: { '@type': 'Organization', name: 'Hourly', url: 'https://hourly.no' },
   };
@@ -111,13 +114,15 @@ export default async function BlogPostPage({
             <h1>{post.title}</h1>
             <p className="lead">{post.excerpt}</p>
             <div className="blog-meta" style={{ marginTop: 14 }}>
-              <span className="blog-cat">{CATEGORY_LABELS[post.category] || post.category}</span>
+              <Link href={`/blogg?kategori=${post.category}`} className="blog-cat">
+                {CATEGORY_LABELS[post.category] || post.category}
+              </Link>
               <time dateTime={post.publishedAt}>{formatDate(post.publishedAt)}</time>
             </div>
           </div>
 
-          {post.coverImage && (
-            <div className="article-cover">
+          <div className="article-cover">
+            {post.coverImage ? (
               <Image
                 src={urlFor(post.coverImage).width(1440).height(760).fit('crop').url()}
                 alt={post.coverImage.alt || post.title}
@@ -125,8 +130,10 @@ export default async function BlogPostPage({
                 height={760}
                 priority
               />
-            </div>
-          )}
+            ) : (
+              <CoverPlaceholder category={post.category} title={post.title} />
+            )}
+          </div>
 
           <div className="article-body">
             <PortableText value={post.body} components={portableTextComponents} />
