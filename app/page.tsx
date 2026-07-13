@@ -364,7 +364,7 @@ export default function HomePage() {
 
       {/* How it works */}
       <section id="slik-fungerer-det">
-        <div className="wrap how-it-works" style={{ padding: '64px 48px' }}>
+        <div className="wrap how-it-works">
           <div className="section-head" style={{ marginBottom: 40 }}>
             <span className="eyebrow">
               <span className="dot"></span> Slik fungerer det
