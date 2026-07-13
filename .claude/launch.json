@@ -1,0 +1,6 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    { "name": "lander-dev", "runtimeExecutable": "npm", "runtimeArgs": ["run", "dev"], "port": 3000, "cwd": "E:\MAC X WINDOWS\GitHub\timeforing-lander" }
+  ]
+}
